@@ -27,9 +27,10 @@ frequency = 0.15  #Change this
 signal = np.cos(t*frequency)*0.3 + (1+(np.cos(t*frequency)>0).astype(int))/2
 
 plt.figure(figsize=(10,12))
-for k in range(0,L,int(L/N_lines)):
-    A = (2*np.mean(img[k:k+int(L/N_lines),:],axis=0) + np.max(img[k:k+int(L/N_lines),:],axis=0))/3
-    Line =  np.repeat(A,16) * signal  #np.real(mod(t,A,B))
-    plt.plot(t,Line-1.3*k/int(L/N_lines),'k',linewidth=1+3*np.mean(np.abs(Line)**2))
+step = max(1, L // N_lines)
+for k in range(0, L, step):
+    A = (2*np.mean(img[k:k+step, :], axis=0) + np.max(img[k:k+step, :], axis=0))/3
+    Line = np.repeat(A, 16) * signal  #np.real(mod(t,A,B))
+    plt.plot(t, Line - 1.3 * k / step, 'k', linewidth=1 + 3 * np.mean(np.abs(Line)**2))
 plt.axis('off')
 plt.savefig(FileName[:-4]+'Edited.jpg', bbox_inches='tight')
