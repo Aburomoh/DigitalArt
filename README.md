@@ -6,7 +6,7 @@ Algorithmic art generators that transform photographs into stylized artwork usin
 
 | Original | Line Art | Squiggly Art |
 |:--------:|:--------:|:------------:|
-| ![Original](Original.png) | ![Line Art](LineArt.png) | ![Squiggly Art](Abraham_Licoln_squiggly.png) |
+| ![Original](examples/Abraham_Lincoln.jpg) | ![Line Art](examples/line_art_output.png) | ![Squiggly Art](examples/squiggly_output.png) |
 
 ## How It Works
 
@@ -54,7 +54,7 @@ python Line_art.py <input_image> <output_file> [--iterations N]
 Example:
 
 ```bash
-python Line_art.py Abraham_Lincoln.jpg output.png --iterations 10000
+python Line_art.py examples/Abraham_Lincoln.jpg output.png --iterations 10000
 ```
 
 **Squiggly Art**
@@ -73,15 +73,17 @@ python Squiggly_art.py <input_image> <output_file> [--lines N] [--frequency F]
 Example:
 
 ```bash
-python Squiggly_art.py Abraham_Lincoln.jpg squiggly_output.png --lines 50 --frequency 0.2
+python Squiggly_art.py examples/Abraham_Lincoln.jpg squiggly_output.png --lines 50 --frequency 0.2
 ```
 
 ## Project Structure
 
 ```
 DigitalArt/
+├── examples/            # Sample input and output images
 ├── Line_art.py          # Line-based art generator
 ├── Squiggly_art.py      # Wavy line art generator
+├── test_line_art.py     # Unit tests
 ├── requirements.txt     # Python dependencies
 ├── LICENSE
 └── README.md
@@ -89,4 +91,4 @@ DigitalArt/
 
 ## License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+This project is released into the public domain under [CC0 1.0](LICENSE).
