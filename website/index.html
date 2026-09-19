@@ -3,74 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mohanad — Educator</title>
-<meta name="description" content="Personal website of Mohanad, an educator. Available in English and Arabic.">
+<title>Dr. Mohannad Abu-Romoh</title>
+<meta name="description" content="Dr. Mohannad Abu-Romoh: machine learning researcher, fiber-optic networks specialist, and computer engineering educator. English and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#fbfaf7; --fg:#1d1d1f; --muted:#5f6368;
-    --accent:#2f6f5e; --card:#ffffff; --line:#e6e3dc;
+    --accent:#2f6f5e; --card:#ffffff; --line:#e6e3dc; --soft:#f2f0ea;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       --bg:#131414; --fg:#f2f1ee; --muted:#a6a8a4;
-      --accent:#7fc4ae; --card:#1c1e1e; --line:#2c2f2e;
+      --accent:#7fc4ae; --card:#1c1e1e; --line:#2c2f2e; --soft:#202322;
     }
   }
-  html[lang="ar"]{
-    --font:"IBM Plex Sans Arabic",-apple-system,"Segoe UI",Tahoma,sans-serif;
-  }
+  html[lang="ar"]{ --font:"IBM Plex Sans Arabic",-apple-system,"Segoe UI",Tahoma,sans-serif; }
   *{box-sizing:border-box}
   body{
     margin:0; background:var(--bg); color:var(--fg);
-    font:17px/1.7 var(--font);
-    -webkit-font-smoothing:antialiased;
+    font:17px/1.7 var(--font); -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:720px; margin:0 auto; padding:0 16px}
+  .wrap{max-width:760px; margin:0 auto; padding:0 16px}
+
   /* language switcher */
   .bar{display:flex; justify-content:flex-end; padding:18px 0 0}
-  .lang{
-    display:inline-flex; gap:2px; background:var(--card);
-    border:1px solid var(--line); border-radius:999px; padding:3px;
-  }
+  .lang{display:inline-flex; gap:2px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:3px}
   .lang button{
-    font:600 14px/1 var(--font); font-family:inherit;
-    padding:7px 14px; border:0; border-radius:999px; cursor:pointer;
-    background:transparent; color:var(--muted);
+    font:600 14px/1 var(--font); padding:7px 14px; border:0; border-radius:999px;
+    cursor:pointer; background:transparent; color:var(--muted);
   }
   .lang button[aria-pressed="true"]{background:var(--accent); color:var(--bg)}
   .lang button:hover{color:var(--fg)}
   .lang button[aria-pressed="true"]:hover{color:var(--bg)}
 
-  header{padding:52px 0 40px}
-  .eyebrow{color:var(--accent); font-weight:600; letter-spacing:.08em; font-size:13px; margin:0 0 12px; text-transform:uppercase}
+  header{padding:44px 0 36px}
+  .eyebrow{color:var(--accent); font-weight:600; letter-spacing:.06em; font-size:12.5px; margin:0 0 12px; text-transform:uppercase}
   html[lang="ar"] .eyebrow{letter-spacing:0; text-transform:none; font-size:14px}
-  h1{font-size:clamp(34px,7vw,52px); line-height:1.15; margin:0 0 14px; letter-spacing:-.02em}
+  h1{font-size:clamp(32px,6.5vw,48px); line-height:1.15; margin:0 0 14px; letter-spacing:-.02em}
   html[lang="ar"] h1{letter-spacing:0}
-  .lede{font-size:clamp(18px,3vw,21px); color:var(--muted); margin:0 0 28px; max-width:56ch}
-  .actions{display:flex; flex-wrap:wrap; gap:10px}
+  .lede{font-size:clamp(17px,2.6vw,20px); color:var(--muted); margin:0 0 26px; max-width:60ch}
+  .actions{display:flex; flex-wrap:wrap; gap:9px}
   .btn{
-    display:inline-block; padding:10px 18px; border-radius:999px; text-decoration:none;
-    font-weight:600; font-size:15px; border:1px solid var(--line); color:var(--fg); background:var(--card);
+    display:inline-block; padding:9px 17px; border-radius:999px; text-decoration:none;
+    font-weight:600; font-size:14.5px; border:1px solid var(--line); color:var(--fg); background:var(--card);
   }
   .btn.primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
   .btn:hover{opacity:.85}
-  section{padding:32px 0; border-top:1px solid var(--line)}
-  h2{font-size:14px; letter-spacing:.08em; color:var(--muted); margin:0 0 16px; font-weight:600; text-transform:uppercase}
+
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:34px 0 0}
+  .stat{background:var(--soft); border-radius:12px; padding:14px 16px}
+  .stat b{display:block; font-size:22px; line-height:1.2}
+  .stat span{color:var(--muted); font-size:13.5px}
+
+  section{padding:34px 0; border-top:1px solid var(--line)}
+  h2{font-size:13px; letter-spacing:.08em; color:var(--muted); margin:0 0 18px; font-weight:600; text-transform:uppercase}
   html[lang="ar"] h2{letter-spacing:0; text-transform:none; font-size:15px}
   p{margin:0 0 16px}
-  .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  h3{margin:0 0 4px; font-size:17px}
+
+  .entry{margin:0 0 22px}
+  .entry:last-child{margin-bottom:0}
+  .entry .meta{color:var(--muted); font-size:14.5px; margin:0 0 6px}
+  .entry p{margin:0; color:var(--muted); font-size:15.5px}
+  .entry .meta b{color:var(--fg); font-weight:600}
+
+  .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
   .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px}
-  .card h3{margin:0 0 6px; font-size:17px}
   .card p{margin:0; color:var(--muted); font-size:15px}
-  footer{padding:32px 0 64px; color:var(--muted); font-size:14px; border-top:1px solid var(--line)}
+
+  ol.pubs{margin:0; padding:0; list-style:none; counter-reset:p}
+  ol.pubs li{
+    position:relative; margin:0 0 18px; padding-inline-start:30px; font-size:15.5px; line-height:1.6;
+  }
+  ol.pubs li::before{
+    counter-increment:p; content:counter(p);
+    position:absolute; inset-inline-start:0; top:3px;
+    width:21px; height:21px; border-radius:6px; background:var(--soft); color:var(--muted);
+    font-size:12px; font-weight:600; display:flex; align-items:center; justify-content:center;
+  }
+  ol.pubs .venue{color:var(--muted)}
+  .tag{
+    display:inline-block; font-size:11.5px; font-weight:600; padding:2px 8px; border-radius:999px;
+    background:var(--soft); color:var(--accent); margin-inline-start:6px; vertical-align:1px;
+  }
+  ul.plain{margin:0; padding:0; list-style:none}
+  ul.plain li{padding:9px 0; border-bottom:1px solid var(--line); font-size:15.5px; display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap}
+  ul.plain li:last-child{border-bottom:0}
+  ul.plain .when{color:var(--muted); font-size:14px; white-space:nowrap}
+  .courses{color:var(--muted); font-size:15.5px}
+  .courses code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px;
+    background:var(--soft); padding:1px 6px; border-radius:5px; color:var(--fg);
+  }
+  footer{padding:30px 0 64px; color:var(--muted); font-size:14px; border-top:1px solid var(--line)}
   a{color:var(--accent)}
-  /* only the active language is shown */
-  html[lang="en"] [data-lang="ar"],
-  html[lang="ar"] [data-lang="en"]{display:none}
+  html[lang="en"] [data-lang="ar"], html[lang="ar"] [data-lang="en"]{display:none}
 </style>
 </head>
 <body>
@@ -84,79 +114,304 @@
   </div>
 
   <header>
-    <p class="eyebrow"><span data-lang="en">Educator</span><span data-lang="ar">مُعلِّم</span></p>
-    <h1><span data-lang="en">Mohanad</span><span data-lang="ar">مهنّد</span></h1>
+    <p class="eyebrow">
+      <span data-lang="en">PhD, Institut Polytechnique de Paris</span>
+      <span data-lang="ar">دكتوراه، معهد البوليتكنيك في باريس</span>
+    </p>
+    <h1><span data-lang="en">Mohannad Abu-Romoh</span><span data-lang="ar">مهنّد أبو رموح</span></h1>
     <p class="lede">
-      <span data-lang="en">I work in education — teaching, curriculum, and helping learners
-      get from where they are to where they want to be.</span>
-      <span data-lang="ar">أعمل في مجال التعليم — التدريس وتصميم المناهج ومساعدة المتعلّمين
-      على الانتقال من حيث هم إلى حيث يريدون أن يكونوا.</span>
+      <span data-lang="en">Machine learning researcher working on model-based neural networks for
+      optical fiber communication, with a second line of work on embedded AI and robotics.
+      I teach computer engineering in Kuwait.</span>
+      <span data-lang="ar">باحث في تعلّم الآلة يعمل على الشبكات العصبية القائمة على النماذج في
+      الاتصالات عبر الألياف الضوئية، إلى جانب خطّ بحثي ثانٍ في الذكاء الاصطناعي المدمج
+      والروبوتات. وأُدرّس هندسة الحاسوب في الكويت.</span>
     </p>
     <div class="actions">
-      <a class="btn primary" href="mailto:mnaburomoh@gmail.com">
-        <span data-lang="en">Get in touch</span><span data-lang="ar">تواصل معي</span>
+      <a class="btn primary" href="mailto:mnaburomoh@outlook.com">
+        <span data-lang="en">Email me</span><span data-lang="ar">راسلني</span>
       </a>
-      <a class="btn" href="#about">
-        <span data-lang="en">About</span><span data-lang="ar">نبذة عني</span>
-      </a>
+      <a class="btn" href="https://scholar.google.com/citations?user=PgkdRooAAAAJ&amp;hl=en">Google Scholar</a>
+      <a class="btn" href="https://www.linkedin.com/in/armohannad">LinkedIn</a>
+      <a class="btn" href="https://github.com/Aburomoh">GitHub</a>
+      <a class="btn" href="https://orcid.org/0000-0003-3324-5867">ORCID</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>6</b><span data-lang="en">publications</span><span data-lang="ar">منشوراً علمياً</span></div>
+      <div class="stat"><b>~105</b><span data-lang="en">citations</span><span data-lang="ar">اقتباساً</span></div>
+      <div class="stat"><b>7</b><span data-lang="en">courses taught</span><span data-lang="ar">مقرّرات أُدرّسها</span></div>
+      <div class="stat"><b>MSCA</b><span data-lang="en">Marie Skłodowska-Curie fellow</span><span data-lang="ar">زمالة ماري كوري</span></div>
     </div>
   </header>
 
   <section id="about">
-    <h2><span data-lang="en">About</span><span data-lang="ar">نبذة عني</span></h2>
+    <h2><span data-lang="en">About</span><span data-lang="ar">نبذة</span></h2>
     <p>
-      <span data-lang="en">I'm an educator focused on making complex ideas clear and learning worth
-      showing up for. My work spans classroom teaching, course and curriculum
-      design, and supporting other educators.</span>
-      <span data-lang="ar">أنا مُعلِّم أركّز على تبسيط الأفكار المعقّدة وجعل التعلّم تجربة تستحقّ
-      الحضور. يشمل عملي التدريس الصفّي، وتصميم المقرّرات والمناهج، ودعم زملائي المعلّمين.</span>
+      <span data-lang="en">I completed my PhD at Télécom Paris as a Marie Skłodowska-Curie Early-Stage
+      Researcher in the EU Horizon 2020 REAL-NET network, with a secondment at Infinera in Munich.
+      My thesis combined model-based digital signal processing with deep learning to build
+      equalizers that stay cheap enough to actually implement in a coherent receiver.</span>
+      <span data-lang="ar">أنجزت الدكتوراه في تليكوم باريس ضمن زمالة ماري سكوودوفسكا كوري للباحثين
+      في مرحلة مبكرة، في شبكة REAL-NET التابعة لبرنامج هورايزن 2020 الأوروبي، مع فترة عمل في
+      شركة إنفينيرا في ميونخ. جمعت في أطروحتي بين معالجة الإشارات الرقمية القائمة على النماذج
+      والتعلّم العميق لبناء معادِلات تبقى بسيطة بما يكفي لتطبيقها فعلياً داخل المستقبِل الضوئي.</span>
     </p>
     <p>
-      <span data-lang="en">I care about practical teaching: clear explanations, useful feedback, and
-      materials students actually use.</span>
-      <span data-lang="ar">يهمّني التعليم العملي: شرحٌ واضح، وتغذية راجعة مفيدة، ومواد يستفيد
-      منها الطلاب فعلاً.</span>
+      <span data-lang="en">Today I am based in Kuwait, teaching computer engineering technology at the
+      American College of the Middle East and continuing to publish. My current work asks where
+      machine learning actually belongs inside a sensing and control pipeline, using competitive
+      line-following robots as the testbed.</span>
+      <span data-lang="ar">أقيم حالياً في الكويت، حيث أُدرّس تقنية هندسة الحاسوب في الكلية الأمريكية
+      في الشرق الأوسط وأواصل النشر العلمي. يبحث عملي الحالي في الموضع الذي ينتمي إليه تعلّم الآلة
+      فعلياً داخل منظومة الاستشعار والتحكّم، متّخذاً من روبوتات تتبّع المسار التنافسية ميداناً للتجربة.</span>
     </p>
   </section>
 
-  <section id="work">
-    <h2><span data-lang="en">What I do</span><span data-lang="ar">مجالات عملي</span></h2>
+  <section id="research">
+    <h2><span data-lang="en">Research</span><span data-lang="ar">اهتماماتي البحثية</span></h2>
     <div class="grid">
       <div class="card">
-        <h3><span data-lang="en">Teaching</span><span data-lang="ar">التدريس</span></h3>
+        <h3><span data-lang="en">Model-based neural networks</span><span data-lang="ar">شبكات عصبية قائمة على النماذج</span></h3>
         <p>
-          <span data-lang="en">Classroom and one-to-one instruction built around how people actually learn.</span>
-          <span data-lang="ar">تدريس صفّي وفردي مبنيّ على الطريقة التي يتعلّم بها الناس فعلاً.</span>
+          <span data-lang="en">Learned digital back-propagation and physics-informed architectures that
+          keep the channel model inside the network.</span>
+          <span data-lang="ar">الانتشار العكسي الرقمي المُتعلَّم وبنى مُستنِدة إلى الفيزياء تُبقي نموذج
+          القناة داخل الشبكة نفسها.</span>
         </p>
       </div>
       <div class="card">
-        <h3><span data-lang="en">Curriculum design</span><span data-lang="ar">تصميم المناهج</span></h3>
+        <h3><span data-lang="en">Optical fiber equalization</span><span data-lang="ar">معادلة الألياف الضوئية</span></h3>
         <p>
-          <span data-lang="en">Courses, lesson plans, and assessments that fit together and hold up.</span>
-          <span data-lang="ar">مقرّرات وخطط دروس وأدوات تقييم متكاملة ومتينة.</span>
+          <span data-lang="en">Low-complexity CNN equalizers for dispersion-managed coherent links,
+          built against real transceiver complexity budgets.</span>
+          <span data-lang="ar">معادِلات بشبكات التفافية منخفضة التعقيد للوصلات المتّسقة المُدارة
+          التشتّت، مصمّمة ضمن حدود التعقيد الواقعية لأجهزة الإرسال والاستقبال.</span>
         </p>
       </div>
       <div class="card">
-        <h3><span data-lang="en">Mentoring</span><span data-lang="ar">الإرشاد والتوجيه</span></h3>
+        <h3><span data-lang="en">Signal classification</span><span data-lang="ar">تصنيف الإشارات</span></h3>
         <p>
-          <span data-lang="en">Working with students and colleagues on the skills that carry over.</span>
-          <span data-lang="ar">العمل مع الطلاب والزملاء على المهارات التي تبقى معهم.</span>
+          <span data-lang="en">Automatic modulation classification from statistical moments and
+          likelihood maximization under fading and noise.</span>
+          <span data-lang="ar">التصنيف التلقائي للتشكيل اعتماداً على العزوم الإحصائية وتعظيم الأرجحية
+          في ظروف الخفوت والضجيج.</span>
+        </p>
+      </div>
+      <div class="card">
+        <h3><span data-lang="en">Embedded and edge AI</span><span data-lang="ar">الذكاء الاصطناعي المدمج</span></h3>
+        <p>
+          <span data-lang="en">AI-assisted segment detection and PID gain scheduling for robots, without
+          throwing away classical control.</span>
+          <span data-lang="ar">كشف مقاطع المسار بمساعدة الذكاء الاصطناعي وجدولة معاملات المتحكّم
+          التناسبي التكاملي التفاضلي، دون التخلّي عن التحكّم الكلاسيكي.</span>
         </p>
       </div>
     </div>
+  </section>
+
+  <section id="publications">
+    <h2><span data-lang="en">Selected publications</span><span data-lang="ar">منشورات مختارة</span></h2>
+    <ol class="pubs" dir="ltr" lang="en">
+      <li>
+        <b>Equalization in dispersion-managed systems using learned digital back-propagation.</b>
+        <span class="tag">Editor's Pick</span><br>
+        <span class="venue">M. Abu-Romoh, N. Costa, Y. Jaouën, A. Napoli, J. Pedro, B. Spinnler, M. Yousefi.
+        <i>Optics Continuum</i>, vol. 2, no. 10, pp. 2088&ndash;2105, 2023.</span>
+      </li>
+      <li>
+        <b>Learned digital back-propagation for dual-polarization dispersion managed systems.</b><br>
+        <span class="venue">M. Abu-Romoh, N. Costa, A. Napoli, B. Spinnler, Y. Jaouën, M. Yousefi.
+        <i>ECOC</i>, We1C.6, 2022.</span>
+      </li>
+      <li>
+        <b>Low complexity convolutional neural networks for equalization in optical fiber transmission.</b><br>
+        <span class="venue">M. Abu-Romoh, N. Costa, A. Napoli, J. Pedro, Y. Jaouën, M. Yousefi.
+        <i>Signal Processing in Photonic Communications</i>, SpM5C.5, 2021.</span>
+      </li>
+      <li>
+        <b>Automatic modulation classification using moments and likelihood maximization.</b><br>
+        <span class="venue">M. Abu-Romoh, A. Aboutaleb, Z. Rezki.
+        <i>IEEE Communications Letters</i>, vol. 22, no. 5, pp. 938&ndash;941, 2018.</span>
+      </li>
+      <li>
+        <b>AI-assisted fast segment detection and PID gain scheduling for competitive line-following robots.</b>
+        <span class="tag">Under review</span><br>
+        <span class="venue">M. Abu-Romoh. <i>ICPRAM 2026</i>.</span>
+      </li>
+      <li>
+        <b>Machine learning placement in line-following robot control: a comparative study of classical and learned pipelines.</b>
+        <span class="tag">In preparation</span><br>
+        <span class="venue">M. Abu-Romoh, F. Ziyad, W. Dawaghreh, O. Al-Attia, Y. Imamverdivey.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="experience">
+    <h2><span data-lang="en">Experience</span><span data-lang="ar">الخبرة العملية</span></h2>
+
+    <div class="entry">
+      <h3><span data-lang="en">American College of the Middle East</span><span data-lang="ar">الكلية الأمريكية في الشرق الأوسط</span></h3>
+      <p class="meta">
+        <span data-lang="en"><b>Computer Engineering Technology</b> · Kuwait · 2024 to present</span>
+        <span data-lang="ar"><b>تقنية هندسة الحاسوب</b> · الكويت · 2024 حتى الآن</span>
+      </p>
+      <p>
+        <span data-lang="en">Teaching seven courses with full syllabus and assessment ownership, and
+        running an active research line on embedded AI and robotics. Served as CET Program Coordinator
+        in 2025, covering curriculum oversight and faculty coordination, and contributed to two
+        ABET-ETAC accreditation cycles.</span>
+        <span data-lang="ar">أُدرّس سبعة مقرّرات بمسؤولية كاملة عن الخطط الدراسية وأدوات التقييم، وأقود
+        خطّاً بحثياً نشطاً في الذكاء الاصطناعي المدمج والروبوتات. شغلت منصب منسّق برنامج تقنية هندسة
+        الحاسوب عام 2025، بما يشمل الإشراف على المناهج وتنسيق أعمال الهيئة التدريسية، وساهمت في
+        دورتي اعتماد أكاديمي من ABET-ETAC.</span>
+      </p>
+    </div>
+
+    <div class="entry">
+      <h3><span data-lang="en">Infinera</span><span data-lang="ar">إنفينيرا</span></h3>
+      <p class="meta">
+        <span data-lang="en"><b>Machine Learning Scientist</b> · Munich, Germany · 2020 to 2022</span>
+        <span data-lang="ar"><b>عالِم تعلّم آلة</b> · ميونخ، ألمانيا · 2020 إلى 2022</span>
+      </p>
+      <p>
+        <span data-lang="en">Applied machine learning to optical signal recovery and classification in
+        real transmission experiments, as part of the REAL-NET project.</span>
+        <span data-lang="ar">طبّقت تعلّم الآلة على استعادة الإشارات الضوئية وتصنيفها ضمن تجارب إرسال
+        حقيقية، وذلك في إطار مشروع REAL-NET.</span>
+      </p>
+    </div>
+
+    <div class="entry">
+      <h3><span data-lang="en">Télécom Paris and Infinera</span><span data-lang="ar">تليكوم باريس وإنفينيرا</span></h3>
+      <p class="meta">
+        <span data-lang="en"><b>Marie Skłodowska-Curie Early-Stage Researcher</b> · France and Germany · 2019 to 2023</span>
+        <span data-lang="ar"><b>باحث مبتدئ بزمالة ماري سكوودوفسكا كوري</b> · فرنسا وألمانيا · 2019 إلى 2023</span>
+      </p>
+      <p>
+        <span data-lang="en">Doctoral research inside the EU H2020 REAL-NET ITN/EID consortium: learned
+        digital back-propagation, low-complexity CNN equalizers, and fiber-channel simulation covering
+        chromatic dispersion, Kerr nonlinearity, and polarization effects.</span>
+        <span data-lang="ar">بحث الدكتوراه ضمن اتحاد REAL-NET الأوروبي: الانتشار العكسي الرقمي المُتعلَّم،
+        ومعادِلات بشبكات التفافية منخفضة التعقيد، ومحاكاة قناة الألياف بما يشمل التشتّت اللوني
+        ولاخطّية كير وتأثيرات الاستقطاب.</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2><span data-lang="en">Teaching</span><span data-lang="ar">التدريس</span></h2>
+    <p>
+      <span data-lang="en">Courses I own at ACM, from first-year digital logic through a PCB fabrication
+      capstone. I also mentor the Robotics and AI Club teams in national competitions.</span>
+      <span data-lang="ar">المقرّرات التي أتولّاها في الكلية الأمريكية في الشرق الأوسط، من المنطق الرقمي
+      في السنة الأولى إلى مشروع التخرّج في تصنيع اللوحات المطبوعة. كما أُشرف على فرق نادي الروبوتات
+      والذكاء الاصطناعي في المسابقات الوطنية.</span>
+    </p>
+    <div class="courses">
+      <ul class="plain">
+        <li><span><code>CPET 181</code> <span data-lang="en">Computer Operating Systems Basics</span><span data-lang="ar">أساسيات أنظمة تشغيل الحاسوب</span></span></li>
+        <li><span><code>CPET 281</code> <span data-lang="en">Introduction to Computer Communication Networks</span><span data-lang="ar">مقدّمة في شبكات اتصالات الحاسوب</span></span></li>
+        <li><span><code>ECET 111</code> <span data-lang="en">Introduction to Digital System Design I</span><span data-lang="ar">مقدّمة في تصميم الأنظمة الرقمية 1</span></span></li>
+        <li><span><code>ECET 146</code> <span data-lang="en">Introduction to Microprocessors</span><span data-lang="ar">مقدّمة في المعالجات الدقيقة</span></span></li>
+        <li><span><code>ECET 264</code> <span data-lang="en">Applications of the C Programming Language</span><span data-lang="ar">تطبيقات لغة البرمجة C</span></span></li>
+        <li><span><code>CNS 176</code> <span data-lang="en">Information Technology Architecture</span><span data-lang="ar">معمارية تقنية المعلومات</span></span></li>
+        <li><span><code>ECET 296</code> <span data-lang="en">Electric Systems Fabrication using PCB</span><span data-lang="ar">تصنيع الأنظمة الكهربائية باللوحات المطبوعة</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2><span data-lang="en">Education</span><span data-lang="ar">المؤهّلات العلمية</span></h2>
+    <div class="entry">
+      <h3><span data-lang="en">PhD, Networks, Information and Communications</span><span data-lang="ar">دكتوراه في الشبكات والمعلومات والاتصالات</span></h3>
+      <p class="meta">
+        <span data-lang="en">Institut Polytechnique de Paris (Télécom Paris) · 2019 to 2023</span>
+        <span data-lang="ar">معهد البوليتكنيك في باريس (تليكوم باريس) · 2019 إلى 2023</span>
+      </p>
+      <p>
+        <span data-lang="en">Thesis: Equalization in optical fiber communication using model-based neural networks.</span>
+        <span data-lang="ar">الأطروحة: المعادلة في الاتصالات عبر الألياف الضوئية باستخدام الشبكات العصبية القائمة على النماذج.</span>
+      </p>
+    </div>
+    <div class="entry">
+      <h3><span data-lang="en">MSc, Electrical Engineering</span><span data-lang="ar">ماجستير في الهندسة الكهربائية</span></h3>
+      <p class="meta">
+        <span data-lang="en">University of Idaho, USA · 2016 to 2019</span>
+        <span data-lang="ar">جامعة آيداهو، الولايات المتحدة · 2016 إلى 2019</span>
+      </p>
+      <p>
+        <span data-lang="en">Thesis: Low complexity algorithms for automatic modulation classification.</span>
+        <span data-lang="ar">الأطروحة: خوارزميات منخفضة التعقيد للتصنيف التلقائي للتشكيل.</span>
+      </p>
+    </div>
+    <div class="entry">
+      <h3><span data-lang="en">BSc, Electrical Engineering</span><span data-lang="ar">بكالوريوس في الهندسة الكهربائية</span></h3>
+      <p class="meta">
+        <span data-lang="en">Jordan University of Science and Technology · 2011 to 2016</span>
+        <span data-lang="ar">جامعة العلوم والتكنولوجيا الأردنية · 2011 إلى 2016</span>
+      </p>
+      <p>
+        <span data-lang="en">Communications and electronics. Ranked 2nd in the specialization.</span>
+        <span data-lang="ar">تخصّص الاتصالات والإلكترونيات. المرتبة الثانية على التخصّص.</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="honors">
+    <h2><span data-lang="en">Honors</span><span data-lang="ar">الجوائز والتكريم</span></h2>
+    <ul class="plain">
+      <li>
+        <span data-lang="en">Editor's Pick, <i>Optics Continuum</i></span>
+        <span data-lang="ar">اختيار هيئة التحرير، مجلة <i>Optics Continuum</i></span>
+        <span class="when">2023</span>
+      </li>
+      <li>
+        <span data-lang="en">1st place, Kuwait National Robotex, line-following category, as team mentor</span>
+        <span data-lang="ar">المركز الأول في مسابقة روبوتكس الكويت الوطنية، فئة تتبّع المسار، بصفتي مشرف الفريق</span>
+        <span class="when">2025</span>
+      </li>
+      <li>
+        <span data-lang="en">Marie Skłodowska-Curie Fellowship, REAL-NET Horizon 2020</span>
+        <span data-lang="ar">زمالة ماري سكوودوفسكا كوري، REAL-NET ضمن هورايزن 2020</span>
+        <span class="when">2019</span>
+      </li>
+      <li>
+        <span data-lang="en">Perfect GRE quantitative score, 170 out of 170</span>
+        <span data-lang="ar">الدرجة الكاملة في القسم الكمّي من اختبار GRE، 170 من 170</span>
+        <span class="when">2018</span>
+      </li>
+      <li>
+        <span data-lang="en">MSc scholarship, University of Idaho</span>
+        <span data-lang="ar">منحة الماجستير، جامعة آيداهو</span>
+        <span class="when">2016</span>
+      </li>
+      <li>
+        <span data-lang="en">Three-time Honor's List, Jordan University of Science and Technology</span>
+        <span data-lang="ar">لائحة الشرف ثلاث مرات، جامعة العلوم والتكنولوجيا الأردنية</span>
+        <span class="when">2011 &ndash; 2016</span>
+      </li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2><span data-lang="en">Contact</span><span data-lang="ar">للتواصل</span></h2>
     <p>
-      <span data-lang="en">The best way to reach me is by email:</span>
-      <span data-lang="ar">أفضل وسيلة للتواصل معي هي البريد الإلكتروني:</span>
-      <bdi><a href="mailto:mnaburomoh@gmail.com">mnaburomoh@gmail.com</a></bdi>
+      <span data-lang="en">Based in Kuwait. Open to research collaboration and to faculty and research
+      scientist positions. Email is the surest way to reach me.</span>
+      <span data-lang="ar">مقيم في الكويت، ومنفتح على التعاون البحثي وعلى الفرص الأكاديمية ومواقع
+      الباحث العلمي. البريد الإلكتروني أضمن وسيلة للوصول إليّ.</span>
     </p>
+    <ul class="plain">
+      <li><span data-lang="en">Email</span><span data-lang="ar">البريد الإلكتروني</span>
+        <bdi><a href="mailto:mnaburomoh@outlook.com">mnaburomoh@outlook.com</a></bdi></li>
+      <li><span data-lang="en">Languages</span><span data-lang="ar">اللغات</span>
+        <span><span data-lang="en">Arabic, English, French</span><span data-lang="ar">العربية، الإنجليزية، الفرنسية</span></span></li>
+    </ul>
   </section>
 
   <footer>
-    <p>© <span id="year">2026</span> <span data-lang="en">Mohanad</span><span data-lang="ar">مهنّد</span></p>
+    <p>© <span id="year">2026</span> <span data-lang="en">Mohannad Abu-Romoh</span><span data-lang="ar">مهنّد أبو رموح</span></p>
   </footer>
 
 </div>
@@ -164,7 +419,7 @@
 <script>
   (function () {
     var STORE = 'lang';
-    var TITLES = { en: 'Mohanad — Educator', ar: 'مهنّد — مُعلِّم' };
+    var TITLES = { en: 'Dr. Mohannad Abu-Romoh', ar: 'د. مهنّد أبو رموح' };
     var html = document.documentElement;
 
     function setLang(lang) {
