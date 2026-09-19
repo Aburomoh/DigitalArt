@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mohanad — Educator</title>
-<meta name="description" content="Personal website of Mohanad, an educator.">
+<meta name="description" content="Personal website of Mohanad, an educator. Available in English and Arabic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#fbfaf7; --fg:#1d1d1f; --muted:#5f6368;
     --accent:#2f6f5e; --card:#ffffff; --line:#e6e3dc;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -16,16 +20,36 @@
       --accent:#7fc4ae; --card:#1c1e1e; --line:#2c2f2e;
     }
   }
+  html[lang="ar"]{
+    --font:"IBM Plex Sans Arabic",-apple-system,"Segoe UI",Tahoma,sans-serif;
+  }
   *{box-sizing:border-box}
   body{
     margin:0; background:var(--bg); color:var(--fg);
-    font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font:17px/1.7 var(--font);
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:720px; margin:0 auto; padding:0 16px}
-  header{padding:72px 0 40px}
-  .eyebrow{color:var(--accent); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:13px; margin:0 0 12px}
-  h1{font-size:clamp(34px,7vw,52px); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em}
+  /* language switcher */
+  .bar{display:flex; justify-content:flex-end; padding:18px 0 0}
+  .lang{
+    display:inline-flex; gap:2px; background:var(--card);
+    border:1px solid var(--line); border-radius:999px; padding:3px;
+  }
+  .lang button{
+    font:600 14px/1 var(--font); font-family:inherit;
+    padding:7px 14px; border:0; border-radius:999px; cursor:pointer;
+    background:transparent; color:var(--muted);
+  }
+  .lang button[aria-pressed="true"]{background:var(--accent); color:var(--bg)}
+  .lang button:hover{color:var(--fg)}
+  .lang button[aria-pressed="true"]:hover{color:var(--bg)}
+
+  header{padding:52px 0 40px}
+  .eyebrow{color:var(--accent); font-weight:600; letter-spacing:.08em; font-size:13px; margin:0 0 12px; text-transform:uppercase}
+  html[lang="ar"] .eyebrow{letter-spacing:0; text-transform:none; font-size:14px}
+  h1{font-size:clamp(34px,7vw,52px); line-height:1.15; margin:0 0 14px; letter-spacing:-.02em}
+  html[lang="ar"] h1{letter-spacing:0}
   .lede{font-size:clamp(18px,3vw,21px); color:var(--muted); margin:0 0 28px; max-width:56ch}
   .actions{display:flex; flex-wrap:wrap; gap:10px}
   .btn{
@@ -35,7 +59,8 @@
   .btn.primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
   .btn:hover{opacity:.85}
   section{padding:32px 0; border-top:1px solid var(--line)}
-  h2{font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 16px; font-weight:600}
+  h2{font-size:14px; letter-spacing:.08em; color:var(--muted); margin:0 0 16px; font-weight:600; text-transform:uppercase}
+  html[lang="ar"] h2{letter-spacing:0; text-transform:none; font-size:15px}
   p{margin:0 0 16px}
   .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
   .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px}
@@ -43,60 +68,131 @@
   .card p{margin:0; color:var(--muted); font-size:15px}
   footer{padding:32px 0 64px; color:var(--muted); font-size:14px; border-top:1px solid var(--line)}
   a{color:var(--accent)}
+  /* only the active language is shown */
+  html[lang="en"] [data-lang="ar"],
+  html[lang="ar"] [data-lang="en"]{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+  <div class="bar">
+    <div class="lang" role="group" aria-label="Language / اللغة">
+      <button type="button" data-set-lang="en" aria-pressed="true" lang="en">English</button>
+      <button type="button" data-set-lang="ar" aria-pressed="false" lang="ar">العربية</button>
+    </div>
+  </div>
+
   <header>
-    <p class="eyebrow">Educator</p>
-    <h1>Mohanad</h1>
-    <p class="lede">I work in education — teaching, curriculum, and helping learners
-    get from where they are to where they want to be.</p>
+    <p class="eyebrow"><span data-lang="en">Educator</span><span data-lang="ar">مُعلِّم</span></p>
+    <h1><span data-lang="en">Mohanad</span><span data-lang="ar">مهنّد</span></h1>
+    <p class="lede">
+      <span data-lang="en">I work in education — teaching, curriculum, and helping learners
+      get from where they are to where they want to be.</span>
+      <span data-lang="ar">أعمل في مجال التعليم — التدريس وتصميم المناهج ومساعدة المتعلّمين
+      على الانتقال من حيث هم إلى حيث يريدون أن يكونوا.</span>
+    </p>
     <div class="actions">
-      <a class="btn primary" href="mailto:mnaburomoh@gmail.com">Get in touch</a>
-      <a class="btn" href="#about">About</a>
+      <a class="btn primary" href="mailto:mnaburomoh@gmail.com">
+        <span data-lang="en">Get in touch</span><span data-lang="ar">تواصل معي</span>
+      </a>
+      <a class="btn" href="#about">
+        <span data-lang="en">About</span><span data-lang="ar">نبذة عني</span>
+      </a>
     </div>
   </header>
 
   <section id="about">
-    <h2>About</h2>
-    <p>I'm an educator focused on making complex ideas clear and learning worth
-    showing up for. My work spans classroom teaching, course and curriculum
-    design, and supporting other educators.</p>
-    <p>I care about practical teaching: clear explanations, useful feedback, and
-    materials students actually use.</p>
+    <h2><span data-lang="en">About</span><span data-lang="ar">نبذة عني</span></h2>
+    <p>
+      <span data-lang="en">I'm an educator focused on making complex ideas clear and learning worth
+      showing up for. My work spans classroom teaching, course and curriculum
+      design, and supporting other educators.</span>
+      <span data-lang="ar">أنا مُعلِّم أركّز على تبسيط الأفكار المعقّدة وجعل التعلّم تجربة تستحقّ
+      الحضور. يشمل عملي التدريس الصفّي، وتصميم المقرّرات والمناهج، ودعم زملائي المعلّمين.</span>
+    </p>
+    <p>
+      <span data-lang="en">I care about practical teaching: clear explanations, useful feedback, and
+      materials students actually use.</span>
+      <span data-lang="ar">يهمّني التعليم العملي: شرحٌ واضح، وتغذية راجعة مفيدة، ومواد يستفيد
+      منها الطلاب فعلاً.</span>
+    </p>
   </section>
 
   <section id="work">
-    <h2>What I do</h2>
+    <h2><span data-lang="en">What I do</span><span data-lang="ar">مجالات عملي</span></h2>
     <div class="grid">
       <div class="card">
-        <h3>Teaching</h3>
-        <p>Classroom and one-to-one instruction built around how people actually learn.</p>
+        <h3><span data-lang="en">Teaching</span><span data-lang="ar">التدريس</span></h3>
+        <p>
+          <span data-lang="en">Classroom and one-to-one instruction built around how people actually learn.</span>
+          <span data-lang="ar">تدريس صفّي وفردي مبنيّ على الطريقة التي يتعلّم بها الناس فعلاً.</span>
+        </p>
       </div>
       <div class="card">
-        <h3>Curriculum design</h3>
-        <p>Courses, lesson plans, and assessments that fit together and hold up.</p>
+        <h3><span data-lang="en">Curriculum design</span><span data-lang="ar">تصميم المناهج</span></h3>
+        <p>
+          <span data-lang="en">Courses, lesson plans, and assessments that fit together and hold up.</span>
+          <span data-lang="ar">مقرّرات وخطط دروس وأدوات تقييم متكاملة ومتينة.</span>
+        </p>
       </div>
       <div class="card">
-        <h3>Mentoring</h3>
-        <p>Working with students and colleagues on the skills that carry over.</p>
+        <h3><span data-lang="en">Mentoring</span><span data-lang="ar">الإرشاد والتوجيه</span></h3>
+        <p>
+          <span data-lang="en">Working with students and colleagues on the skills that carry over.</span>
+          <span data-lang="ar">العمل مع الطلاب والزملاء على المهارات التي تبقى معهم.</span>
+        </p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>The best way to reach me is by email:
-    <a href="mailto:mnaburomoh@gmail.com">mnaburomoh@gmail.com</a>.</p>
+    <h2><span data-lang="en">Contact</span><span data-lang="ar">للتواصل</span></h2>
+    <p>
+      <span data-lang="en">The best way to reach me is by email:</span>
+      <span data-lang="ar">أفضل وسيلة للتواصل معي هي البريد الإلكتروني:</span>
+      <bdi><a href="mailto:mnaburomoh@gmail.com">mnaburomoh@gmail.com</a></bdi>
+    </p>
   </section>
 
   <footer>
-    <p>© <span id="year">2026</span> Mohanad</p>
+    <p>© <span id="year">2026</span> <span data-lang="en">Mohanad</span><span data-lang="ar">مهنّد</span></p>
   </footer>
 
 </div>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+  (function () {
+    var STORE = 'lang';
+    var TITLES = { en: 'Mohanad — Educator', ar: 'مهنّد — مُعلِّم' };
+    var html = document.documentElement;
+
+    function setLang(lang) {
+      lang = (lang === 'ar') ? 'ar' : 'en';
+      html.lang = lang;
+      html.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+      document.title = TITLES[lang];
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute('aria-pressed', String(buttons[i].dataset.setLang === lang));
+      }
+      try { localStorage.setItem(STORE, lang); } catch (e) {}
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(STORE); } catch (e) {}
+    if (!saved) {
+      saved = (navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en';
+    }
+    setLang(saved);
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('[data-set-lang]') : null;
+      if (btn) setLang(btn.dataset.setLang);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
 </body>
 </html>
