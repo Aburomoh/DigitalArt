@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohanad — Educator</title>
+<meta name="description" content="Personal website of Mohanad, an educator.">
+<style>
+  :root{
+    --bg:#fbfaf7; --fg:#1d1d1f; --muted:#5f6368;
+    --accent:#2f6f5e; --card:#ffffff; --line:#e6e3dc;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#131414; --fg:#f2f1ee; --muted:#a6a8a4;
+      --accent:#7fc4ae; --card:#1c1e1e; --line:#2c2f2e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:0 16px}
+  header{padding:72px 0 40px}
+  .eyebrow{color:var(--accent); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:13px; margin:0 0 12px}
+  h1{font-size:clamp(34px,7vw,52px); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em}
+  .lede{font-size:clamp(18px,3vw,21px); color:var(--muted); margin:0 0 28px; max-width:56ch}
+  .actions{display:flex; flex-wrap:wrap; gap:10px}
+  .btn{
+    display:inline-block; padding:10px 18px; border-radius:999px; text-decoration:none;
+    font-weight:600; font-size:15px; border:1px solid var(--line); color:var(--fg); background:var(--card);
+  }
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+  .btn:hover{opacity:.85}
+  section{padding:32px 0; border-top:1px solid var(--line)}
+  h2{font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 16px; font-weight:600}
+  p{margin:0 0 16px}
+  .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px}
+  .card h3{margin:0 0 6px; font-size:17px}
+  .card p{margin:0; color:var(--muted); font-size:15px}
+  footer{padding:32px 0 64px; color:var(--muted); font-size:14px; border-top:1px solid var(--line)}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Educator</p>
+    <h1>Mohanad</h1>
+    <p class="lede">I work in education — teaching, curriculum, and helping learners
+    get from where they are to where they want to be.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:mnaburomoh@gmail.com">Get in touch</a>
+      <a class="btn" href="#about">About</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm an educator focused on making complex ideas clear and learning worth
+    showing up for. My work spans classroom teaching, course and curriculum
+    design, and supporting other educators.</p>
+    <p>I care about practical teaching: clear explanations, useful feedback, and
+    materials students actually use.</p>
+  </section>
+
+  <section id="work">
+    <h2>What I do</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Teaching</h3>
+        <p>Classroom and one-to-one instruction built around how people actually learn.</p>
+      </div>
+      <div class="card">
+        <h3>Curriculum design</h3>
+        <p>Courses, lesson plans, and assessments that fit together and hold up.</p>
+      </div>
+      <div class="card">
+        <h3>Mentoring</h3>
+        <p>Working with students and colleagues on the skills that carry over.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>The best way to reach me is by email:
+    <a href="mailto:mnaburomoh@gmail.com">mnaburomoh@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    <p>© <span id="year">2026</span> Mohanad</p>
+  </footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
